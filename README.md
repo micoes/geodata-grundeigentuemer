@@ -5,7 +5,7 @@ Die vorliegende Applikation ermöglicht die Abfrage von Grundeigentümern anhand
 Um Grundeigentümer von Parzellen abzufragen, können Nutzer entweder direkt auf eine Parzelle klicken oder im Suchfeld einen Grundeigentümer eingeben, um alle ihm zugehörigen Parzellen anzuzeigen. 
 
 ## Verwendung
-1. **Start des lokalen Servers**  
+### 1. Start des lokalen Servers
    Um die Applikation lokal auszuführen und Cross-Origin Resource Sharing (CORS) zu ermöglichen, ist ein lokaler HTTP-Server erforderlich.
    - Öffne ein Terminal oder eine Eingabeaufforderung in dem Verzeichnis, das deine HTML-Datei enthält.
    - Starte den Server mit folgendem Befehl (Beispiel mit Python):
@@ -13,18 +13,18 @@ Um Grundeigentümer von Parzellen abzufragen, können Nutzer entweder direkt auf
      - Python (Version 2): py -m SimpleHTTPServer 8000
    - Die Anwendung wird unter `http://localhost:8000` bereitgestellt.
 
-3. **Navigation innerhalb der Anwendung**  
+### 2. Navigation innerhalb der Anwendung
 - Die Hauptseite enthält eine interaktive Karte, die Parzelleninformationen anzeigt.  
 - Nutzer können zwischen **Farbdarstellung** (`index_color.html`) und **Graustufenkarte** (`index_grey.html`) wechseln.  
 - Ein Suchfeld ermöglicht die Auswahl eines Grundeigentümers, wodurch alle Parzellen, an denen dieser beteiligt ist, markiert werden.
 
-3. **Datenstruktur**  
+### 3. Datenstruktur
 - Die Parzellendaten sind in der Datei `kataster.json` im Ordner `data` hinterlegt.  
 - Die Skripte zur Funktionalität (Klick-Events, Suche, Sortierung und Kartenwechsel) befinden sich im Ordner `script`.  
 - Die visuellen Stile sind in `style.css` im Ordner `css` definiert.  
 - Icons und Bilder sind im Ordner `image` gespeichert.
 
-## Limitierungen
+## Limitation
 - Diese Applikation basiert auf öffentlich zugänglichen Datenquellen und enthält keine Echtzeit-Updates zu Eigentumsverhältnissen.  
 - Die Genauigkeit der Standortinformationen hängt von der externen API sowie den bereitgestellten Koordinaten ab.  
 - Die Applikation wurde für den lokalen Gebrauch konzipiert. Eine Online-Bereitstellung erfordert weitere Anpassungen zur Serverkonfiguration und CORS-Umgehung.  
