@@ -1,5 +1,7 @@
 # Geodata Grundeigentuemer
-Die vorliegende Applikation ermöglicht die Abfrage von Grundeigentümern anhand einer interaktiven Kartenansicht.
+Die vorliegende Applikation ermöglicht die Abfrage von Grundeigentümern anhand einer interaktiven Kartenansicht. Aus Gründen des Datenschutzes wurden die jeweiligen Grundeigentümer anonymisiert.
+
+![index-color_abfrage](https://github.com/user-attachments/assets/5e53f8bd-d83d-4ff7-9938-50f6ef611b4d)
 
 ## Einführung
 Um Grundeigentümer von Parzellen abzufragen, können Nutzer entweder direkt auf eine Parzelle klicken oder im Suchfeld einen Grundeigentümer eingeben, um alle ihm zugehörigen Parzellen anzuzeigen. 
@@ -11,12 +13,23 @@ Um Grundeigentümer von Parzellen abzufragen, können Nutzer entweder direkt auf
    - Starte den Server mit folgendem Befehl (Beispiel mit Python):
      - Python (Version 3): py -m http.server 8000
      - Python (Version 2): py -m SimpleHTTPServer 8000
-   - Die Anwendung wird unter `http://localhost:8000` bereitgestellt.
+   - Die Anwendung ist unter `http://localhost:8000/index_color.html` bzw. `http://localhost:8000/index_grey.html` aufrufbar.
 
 ### 2. Navigation innerhalb der Anwendung
-- Die Hauptseite enthält eine interaktive Karte, die Parzelleninformationen anzeigt.  
-- Nutzer können zwischen **Farbdarstellung** (`index_color.html`) und **Graustufenkarte** (`index_grey.html`) wechseln.  
-- Ein Suchfeld ermöglicht die Auswahl eines Grundeigentümers, wodurch alle Parzellen, an denen dieser beteiligt ist, markiert werden.
+Die Applikation umfasst eine interaktive Karte, die Parzelleninformationen bereitstellt.
+
+![index-color_zoom](https://github.com/user-attachments/assets/e1c22929-565e-418a-b9ad-835675e4add1)
+
+
+Nutzer können zwischen dem aktuellsten **Luftbild (Orthofoto)** `index_color.html` und der **Landeskarte in grau** `index_grey.html` mit AV-Daten wechseln.
+
+![index-grey_zoom](https://github.com/user-attachments/assets/24bb00fc-dc89-478e-9a3f-53b9401ba1be)
+
+
+Ein Suchfeld ermöglicht die Auswahl eines Grundeigentümers, wodurch Parzellen, an denen dieser beteiligt ist, markiert werden.
+
+![index-grey_zoom_search](https://github.com/user-attachments/assets/7e10ff05-362a-40be-b976-c1f5e24792c3)
+
 
 ### 3. Datenstruktur
 - Die Parzellendaten sind in der Datei `kataster.json` im Ordner `data` hinterlegt.  
