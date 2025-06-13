@@ -1,5 +1,5 @@
-# Geodata Grundeigentuemer
-Die vorliegende Applikation ermöglicht die Abfrage von Grundeigentümern anhand einer interaktiven Kartenansicht. Aus Gründen des Datenschutzes wurden die jeweiligen Grundeigentümer anonymisiert.
+# Geodata Grundeigentümer
+Die vorliegende Applikation ermöglicht die Abfrage von Grundeigentümern anhand einer interaktiven Kartenansicht. Aus Gründen des Datenschutzes wurden die jeweiligen Grundeigentümer anonymisiert. Die Applikation wurde am Beispiel der Gemeinde Gansingen umgesetzt, lässt sich allerdings auf eine oder mehrere beliebige Gemeinde(n) des Kantons Aargaus anwenden (vgl. Limitation).
 
 ![index-color_abfrage](https://github.com/user-attachments/assets/5e53f8bd-d83d-4ff7-9938-50f6ef611b4d)
 
@@ -32,13 +32,15 @@ Ein Suchfeld ermöglicht die Auswahl eines Grundeigentümers, wodurch Parzellen,
 
 
 ### 3. Datenstruktur
-- Die Parzellendaten sind in der Datei `kataster.json` im Ordner `data` hinterlegt.  
+- Die Parzellendaten sind in der Datei `kataster.json` im Ordner `data` hinterlegt.
 - Die Skripte zur Funktionalität (Klick-Events, Suche, Sortierung und Kartenwechsel) befinden sich im Ordner `script`.  
 - Die visuellen Stile sind in `style.css` im Ordner `css` definiert.  
 - Icons und Bilder sind im Ordner `image` gespeichert.
 
 ## Limitation
-- Diese Applikation basiert auf öffentlich zugänglichen Datenquellen und enthält keine Echtzeit-Updates zu Eigentumsverhältnissen.  
+- Diese Applikation basiert auf öffentlich zugänglichen Datenquellen und enthält keine Echtzeit-Updates zu Eigentumsverhältnissen.
+  - Die Applikation wurde am Beispiel der Gemeinde Gansingen umgesetzt, lässt sich allerdings auf eine oder mehrere beliebige Gemeinde(n) des Kantons Aargaus anwenden. Dazu muss die Datei `kataster.json` mit den Eigentümerangaben zu den Parzellen der gewünschten Gemeinde erweitert werden.
+  - Der initiale Kartenausschnitt stellt andererseits die Gemeinde Gansingen dar und kann innerhalb von `index_color.html` bzw. `index_grey.html` in Zeile 31 via Längs- und Breitengrad definiert werden.
 - Die Genauigkeit der Standortinformationen hängt von der externen API sowie den bereitgestellten Koordinaten ab.  
 - Die Applikation wurde für den lokalen Gebrauch konzipiert. Eine Online-Bereitstellung erfordert weitere Anpassungen zur Serverkonfiguration und CORS-Umgehung.  
 - Die WebSocket-Verbindung (`server.py`) wird zur Verwaltung der Serveraktivität genutzt, jedoch setzt eine vollständige Nutzung spezifische Laufzeitvoraussetzungen voraus.
