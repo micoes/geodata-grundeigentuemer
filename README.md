@@ -1,13 +1,15 @@
 # Geodata Grundeigentuemer
-Diese Applikation ermöglicht die Abfrage von Grundeigentümern anhand einer interaktiven Kartenansicht.
+Die vorliegende Applikation ermöglicht die Abfrage von Grundeigentümern anhand einer interaktiven Kartenansicht.
 
 ## Einführung
-Diese Applikation ermöglicht die Abfrage von Grundeigentümern einer Parzelle anhand einer interaktiven Kartenansicht. Nutzer können entweder direkt auf eine Parzelle klicken oder im Suchfeld einen Grundeigentümer eingeben, um alle ihm zugehörigen Parzellen mit Markern anzuzeigen.
+Um Grundeigentümer von Parzellen abzufragen, können Nutzer entweder direkt auf eine Parzelle klicken oder im Suchfeld einen Grundeigentümer eingeben, um alle ihm zugehörigen Parzellen anzuzeigen. 
 
 ## Verwendung
 1. **Start des lokalen Servers**  
-   Um die Applikation auszuführen und CORS-Probleme zu vermeiden, starte einen lokalen HTTP-Server.
-   - Beispiel mit Python: py -m http.server 8000
+   Um die Applikation lokal auszuführen und Cross-Origin Resource Sharing (CORS) zu ermöglichen, ist ein lokaler HTTP-Server erforderlich.
+   - Beispiel mit Python
+     - Python (Version 3): py -m http.server 8000
+     - Python (Version 2): py -m SimpleHTTPServer 8000
    - Dadurch wird die Anwendung unter `http://localhost:8000` bereitgestellt.
 
 3. **Navigation innerhalb der Anwendung**  
