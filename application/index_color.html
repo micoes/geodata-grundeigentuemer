@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <link rel="icon" type="image/x-icon" href="image/favicon-16x16.ico">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+  </head>
+  <body>
+    <div class="map-switcher-container">
+      <button class="map-switcher" onclick="switchMap()" title="Landeskarte mit AV-Daten grau"></button>
+    </div>
+    <div class="search-container">
+      <input type="text" id="search-input" placeholder="Grundeigentümer"/>
+      <button id="clear-search" title="Marker, Auswahl und Suchresultate löschen"></button>
+      <div id="dropdown-container">
+        <div class="custom-select">
+          <select id="sort-dropdown">
+            <option value="default">Sortieren nach</option>
+            <option value="area">Fläche</option>
+            <option value="parcel">Anzahl Parzellen</option>
+          </select>
+        </div>
+        <div id="dropdown" class="dropdown-content"></div>
+      </div>
+    </div>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+      // Create a Leaflet map and center it in Gansingen
+      var map = L.map('map').setView([47.5376, 8.1346], 15);
+
+      // Add swisstopo basemap (Landeskarte in Farbe) to the map   
+      L.tileLayer('https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.swissimage/default/current/3857/{z}/{x}/{y}.jpeg', {
+        attribution: '<a href="https://www.swisstopo.admin.ch/" target="_blank" title="The Federal Office of Topography">Swisstopo</a> | <a href="https://geodienste.ch/" target="_blank" title="The Geoinformation and Cadastral Offices of the Cantons">Geodienste</a> | <a href="https://www.ag.ch/geoportal/" target="_blank" title="The Geoportal of the Canton of Aargau">AGIS</a> | &copy; Michael Oeschger',
+        minZoom: 8.5,
+        maxZoom: 20,
+	    bounds: [[45.398181, 5.140242], [48.230651, 11.47757]]
+      }).addTo(map);
+        
+      // Add WMS layer to the map (ag.ch)
+      L.tileLayer.wms('https://wms.geo.ag.ch/public/ch_ag_geo_va_AVWMS/wms?', {
+        layers: 'ch_ag_geo_va_avwms_va_lsparz_01', // AV Parzellen
+        format: 'image/png',
+        transparent: true,
+        minZoom: 18,
+        maxZoom: 20
+      }).addTo(map);
+
+      L.tileLayer.wms('https://wms.geo.ag.ch/public/ch_ag_geo_va_AVWMS/wms?', {
+        layers: 'ch_ag_geo_va_avwms_va_lsparznr_01', // AV: Parzellennummern
+        format: 'image/png',
+        transparent: true,
+        minZoom: 18,
+        maxZoom: 20
+      }).addTo(map);
+
+      // Add WMS layer to the map (geodienste.ch)
+      L.tileLayer.wms('https://geodienste.ch/db/av_0/deu?SERVICE=WMS&REQUEST=GetCapabilities', {
+        layers: 'LCSFPROJ', // ProjBodenbedeckung
+        format: 'image/png',
+        transparent: true,
+        maxZoom: 20
+      }).addTo(map);
+      
+      // Anpassung des Kartenausschnitts und Zoomlevels basierend auf URL-Parametern
+      var urlParams = new URLSearchParams(window.location.search);
+      var lat = urlParams.get('lat');
+      var lng = urlParams.get('lng');
+      var zoom = urlParams.get('zoom');
+      if (lat && lng && zoom) { map.setView([lat, lng], zoom);
+      }
+
+      // WebSocket-Verbindung herstellen
+      var socket = new WebSocket("ws://localhost:5678");
+      // Nachricht senden, wenn das Fenster geschlossen wird
+      window.onbeforeunload = function() { 
+        socket.send("close_server"); 
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.6.0/proj4.js"></script> <!-- Convert latitude and longitude to CH1903+/LV95 -->
+    <script src="script/onmapclick.js"></script>
+    <script src="script/search.js"></script>
+    <script src="script/sort.js"></script>
+    <script src="script/switchmap.js"></script>  
+  </body>
+</html>

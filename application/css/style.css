@@ -1,0 +1,145 @@
+html, body {
+    margin: 0;
+}
+#map {
+    height: 100vh;
+}
+
+
+.map-switcher-container {
+    position: absolute;
+    top: 83px;
+    left: 10px;
+    z-index: 800;
+}
+.map-switcher {
+    background-color: #fff;
+    color: #333;
+    display: block;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    position: relative;
+}
+.map-switcher::before {
+    content: "";
+    background: url('../image/map.svg') no-repeat center center;
+    background-size: 18px 18px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 18px;
+    height: 18px;
+}
+.map-switcher:hover {
+    background-color: #f4f4f4;
+    color: #000;
+}
+
+
+.search-container {
+    position: absolute;
+    top: 13px;
+    left: 53px;
+    z-index: 800;
+    background: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.search-container input {
+    width: 300px;
+    padding: 5px;
+    font-size: 14px;
+}
+#search-input {
+    padding-right: 24px; /* Platz für das Kreuz */
+    border: 1px solid #ccc;
+    border-radius: 2px;
+}
+#clear-search {
+    position: absolute;
+    right: 10px;
+    top: 12.5px; /* Vertikale Zentrierung */
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: transparent url('../image/x-symbol.svg') no-repeat center center;
+    background-size: 11px 11px;
+    cursor: pointer;
+    display: none; /* Versteckt den Button standardmäßig */
+}
+
+
+#dropdown-container {
+    display: none;
+}
+#sort-dropdown {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    color: #888;
+}
+#dropdown {
+    margin-top: 35px;
+}
+.dropdown-content {
+    max-height: 325px;
+    overflow-y: auto;
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: white;
+    z-index: 1;
+    width: 100%;
+    border-radius: 5px;
+    padding-left: 10px; /* Fügt Innenabstände hinzu */
+    box-sizing: border-box; /* Berücksichtigt Innenabstände */
+}
+.dropdown-content::-webkit-scrollbar {
+    width: 10px; /* Breite der Scrollbar */
+}
+.dropdown-content::-webkit-scrollbar-thumb {
+    background: #888; /* Farbe des Scrollbar-Daumen */
+    border-radius: 5px; /* Abrundung des Scrollbar-Daumen */
+}
+.search-container input:focus + .dropdown-content {
+    display: block;
+}
+.dropdown-item {
+    padding: 12px 16px;
+    cursor: pointer;
+}
+.dropdown-item:hover {
+    background-color: #f1f1f1;
+}
+
+
+.leaflet-popup-content strong {
+    font-weight: bold;
+}
+.leaflet-popup-content p {
+    margin: 0 !important; /* !important aufgrund leaflet.css, welches margin-top und margin-bottom von je 18px definiert */
+    padding: 0;
+}
+.custom-leaflet-marker-icon {
+    background-image: url('../image/marker.svg') !important;
+    background-size: contain;
+    border: none;
+    box-shadow: none;
+}
+.leaflet-marker-shadow {
+    display: none;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
