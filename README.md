@@ -44,5 +44,5 @@ Das Suchfeld ermöglicht die Auswahl eines Grundeigentümers, wodurch sämtliche
 
 ## Limitation
 - Diese Applikation basiert auf öffentlich zugänglichen Daten und enthält keine Echtzeit-Updates zu Eigentumsverhältnissen.
-- Die Genauigkeit der Standortinformationen ist abhängig von den verwendeten API sowie den daraus bereitgestellten Koordinaten.
+- Die Genauigkeit der Standortinformationen ist abhängig von den verwendeten API, [Geodaten des Kantons Aargau (AGIS)](https://wms.geo.ag.ch/public/ch_ag_geo_va_AVWMS/wms?service=wms&version=1.3.0&request=GetCapabilities) und [Geodienste](https://geodienste.ch/db/av_0/deu?SERVICE=WMS&REQUEST=GetCapabilities), sowie den daraus bereitgestellten Koordinaten.
 - Die Applikation wurde für den lokalen Gebrauch konzipiert; eine Online-Bereitstellung erfordert Anpassungen u.a. bezüglich Serverkonfiguration und CORS-Umgehung.
